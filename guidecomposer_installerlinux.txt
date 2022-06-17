@@ -1,0 +1,2 @@
+sudo apt install php-mbstring
+sudo apt-get install php-xml

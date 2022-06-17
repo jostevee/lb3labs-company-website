@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\Models",
+    "\\public",
+    "\\public\\assets",
+    "\\public\\assets\\js",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\admin",
+    "\\resources\\views\\writer"
+  ],
+  "SelectedNode": "\\resources\\views\\writer\\edit_single_career.blade.php",
+  "PreviewInSolutionExplorer": false
+}

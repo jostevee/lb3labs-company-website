@@ -1,0 +1,492 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 30, 2022 at 08:23 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `optimus`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `user_id`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin Optimus', 'admin', '$2y$10$IcD4jUCCQqxD.BgzlB0AtumRCYzLee/bwZWvZ9Dx5ZripSxjwfUEe', NULL, '2021-08-02 22:58:48', '2021-08-02 22:58:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_category` bigint(20) UNSIGNED NOT NULL,
+  `id_writer` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img_link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_categories`
+--
+
+CREATE TABLE `article_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `careers`
+--
+
+CREATE TABLE `careers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_writer` bigint(20) UNSIGNED NOT NULL,
+  `id_category` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publish_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `due_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `careers`
+--
+
+INSERT INTO `careers` (`id`, `id_writer`, `id_category`, `title`, `content`, `publish_date`, `due_date`, `link`, `created_at`, `updated_at`) VALUES
+(4, 1, 1, 'Data Engineer', '<p>Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 00:35:57', '2022-02-09 08:59:34'),
+(5, 1, 1, 'Data Analyst', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 00:36:57', '2022-02-09 08:59:16'),
+(6, 1, 1, 'Data Scientist', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:00:55', '2022-02-09 08:58:57'),
+(7, 1, 1, 'UI/UX Designer', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:01:49', '2022-02-09 08:58:36'),
+(8, 1, 1, 'Cyber Security Engineer', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:02:31', '2022-02-09 08:58:17'),
+(9, 1, 1, 'Software Engineer', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:49:47', '2022-02-09 08:57:57'),
+(10, 1, 1, 'Scrum Master', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:50:15', '2022-02-09 08:57:41'),
+(11, 1, 1, 'Product Manager', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-21 01:50:52', '2022-02-09 08:57:13'),
+(12, 1, 1, 'Project Manager', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-22 09:58:20', '2022-02-09 08:56:56'),
+(13, 1, 1, 'Programmer', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-22 09:58:43', '2022-02-09 08:56:22'),
+(14, 1, 1, 'QA Engineer', '<p align=\"justify\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-07-22 09:59:06', '2022-02-09 08:56:03'),
+(18, 1, 2, 'Sales Development', '<p style=\"box-sizing: border-box; margin-top: 10px; margin-bottom: 0px; font-size: 18px;\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-08-24 11:15:13', '2022-02-09 08:55:48'),
+(19, 1, 4, 'Tech Recruiter', '<p style=\"margin-top: 10px; margin-bottom: 0px; flex-shrink: 0; width: 1272px; max-width: 100%; padding-right: calc(var(--bs-gutter-x)/ 2); padding-left: calc(var(--bs-gutter-x)/ 2); color: rgb(68, 68, 68); font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 18px;\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-11-08 22:01:29', '2022-02-09 08:55:30'),
+(20, 1, 2, 'Account Manager', '<p style=\"margin-top: 10px; margin-bottom: 0px; flex-shrink: 0; width: 1272px; max-width: 100%; padding-right: calc(var(--bs-gutter-x)/ 2); padding-left: calc(var(--bs-gutter-x)/ 2); color: rgb(68, 68, 68); font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 18px;\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-11-08 22:04:13', '2022-02-09 08:55:01'),
+(21, 1, 5, 'Marketing Specialist', '<p style=\"margin-top: 10px; margin-bottom: 0px; flex-shrink: 0; width: 1272px; max-width: 100%; padding-right: calc(var(--bs-gutter-x)/ 2); padding-left: calc(var(--bs-gutter-x)/ 2); color: rgb(68, 68, 68); font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 18px;\">Not Available</p>', '28-05-2021', '2000-02-20', 'consultwithoptimus.id/jobs', '2021-12-16 20:20:04', '2022-02-09 08:55:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `career_categories`
+--
+
+CREATE TABLE `career_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `career_categories`
+--
+
+INSERT INTO `career_categories` (`id`, `category`, `created_at`, `updated_at`) VALUES
+(1, 'IT Talents', '2021-08-04 06:33:37', '2021-08-04 06:33:37'),
+(2, 'Sales Talents', '2021-08-04 06:33:57', '2021-08-04 06:33:57'),
+(4, 'Human Resource', '2021-08-10 02:37:47', '2021-08-10 02:37:47'),
+(5, 'Marketing', '2021-12-16 20:16:56', '2021-12-16 20:16:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category`, `created_at`, `updated_at`) VALUES
+(1, 'Public Training', '2021-08-10 03:24:56', '2021-08-10 03:24:56'),
+(2, 'Live Webinar', '2021-08-10 03:25:09', '2021-08-10 03:25:09'),
+(3, 'News', '2021-11-28 19:33:22', '2021-11-28 19:33:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_category` bigint(20) UNSIGNED NOT NULL,
+  `id_writer` bigint(20) UNSIGNED NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img_link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `id_category`, `id_writer`, `content`, `img_link`, `link`, `created_at`, `updated_at`) VALUES
+(3, 'PREPARE YOUR PENSION!', 1, 1, '<p>PREPARE YOUR PENSION!</p><p>Stay prosperous during retirement</p><p><br></p><p>You will learn about :</p><p>1. Financial Checkup</p><p>2. Identifying and managing financial after retirement</p><p>3. Asset management</p><p>4. Smart investment</p><p>5. Managing a smart business opportunities</p><p><br></p><p>Facilitator:</p><p>Eko Endarto, SE, MM, CFP, RFA</p><p>Financial&nbsp; Planer</p><p><br></p><p>Investment: Rp.500.000,-</p><p>Earlybird: Rp.250.000.-</p><p><br></p><p>*E-Certificate available</p><p>*minimum 20 participants</p>', '1628591408training pak eko gether interest.jpg', 'bit.ly/optimustraining01', '2021-08-10 03:30:08', '2021-08-10 03:30:08'),
+(4, 'SALARY STRUCTURE DESIGN', 1, 1, '<p>SALARY STRUCTURE DESIGN</p><p>complying with the regulation PP 36/2021</p><p><br></p><p>You will learn about :</p><p>1. Total Rewards model</p><p>2. Fundamental principle of compensation</p><p>3. Understanding and processing external market data</p><p>4. Developing salary scale &amp; structure</p><p>5. Create pay increase mechanism</p><p>6. Conduct internal pay equity analysis</p><p><br></p><p>Facilitator:</p><p>Antonius Haryanto, GRP</p><p>Total Rewards Expert</p><p><br></p><p>Investment: Rp.750.000,-</p><p>Earlybird: RP.600.000,-</p><p><br></p><p>*E-Certificate available</p><p>*minimum 20 participants</p>', '1628591452publik training pak anton.png', 'bit.ly/optimustraining01', '2021-08-10 03:30:56', '2021-08-10 03:30:56'),
+(14, '2022 Outlook: Shaping Learning Culture in the Hybrid Workforce', 2, 1, '<p><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Be ready for a joint webinar between Optimus Consulting &amp; Disprz!</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">2022 Outlook: Shaping Learning Culture in the Hybrid Workforce</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">In this era of disruptive transformations in the place of work, having the right upskilling programs in place can have a massive positive impact on making your workforce increasingly flexible and adaptable. It is what lends your organization a competitive edge on the business front as well.</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">This webinar organized by Optimus and Disprz focuses on the best practices and priorities of L&amp;D teams to create a future-ready working culture and upskill the talent that exists within the organizational fold.</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">We will be having:</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">- Toman Alberto (Host)</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Director of Optimus Consulting</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">- Vineet Koka (Host)</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">VP SE Asia of Disprz</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">- Rudy Rahadian (Moderator)</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Talent Growth &amp; Analytics of Alterra Indonesia</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">- Effendi Ibnoe (Panelist)</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Senior Advisor HC of PT. Citilink Indonesia</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">- Fikha Lutfi (Panelist)</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Head of Talent Management - Mind ID</span><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><br style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\"><span style=\"color: rgb(38, 38, 38); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;\">Set your schedule on March 9th, 2022 at 2 pm Jakarta Time</span><br></p>', '164567977816 9 flyer.jpg', 'bit.ly/webinaroptimusxdisprz', '2022-02-23 22:16:18', '2022-02-23 22:16:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_writer` int(11) NOT NULL,
+  `question` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `id_writer`, `question`, `answer`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Why should I choose Optimus as my organization\'s HR Consultant?', '<div style=\"text-align: justify;\"><span style=\"font-size: 16px; color: rgb(32, 33, 36);\">Through a detailed consulting process, we offer proper end-to-end solutions, tailored to meet the needs of your organization. We have core values ​​that we uphold; Trust, Cooperation, Commitment, Flexibility, and Fun, so we dare to admit that we are an honest &amp; sincere team and most importantly, we really enjoy what we do. We are known as a company that builds Long term relationships with our clients and candidates, and take pride in our track record of providing 1st class quality service.</span></div>', '2021-07-21 09:22:16', '2022-01-06 21:10:22'),
+(2, 1, 'What solutions does Optimus provide for the benefit of my organization\'s HR?', '<p class=\"MsoNormal\" style=\"text-align: justify;\"><span lang=\"EN-ID\" style=\"font-size: 24px;\"><b>RECRUITMENT SERVICES</b></span></p><ul><li style=\"text-align: justify;\">&nbsp; &nbsp;Executive Search</li><li style=\"text-align: justify;\">&nbsp; &nbsp;Mass Hiring</li><li style=\"text-align: justify;\">&nbsp; &nbsp;Recruitment Process Outsourcing (RPO)</li></ul><p class=\"MsoNormal\" style=\"text-align: justify;\"><span lang=\"EN-ID\"><b><span style=\"font-size: 24px;\">ONLINE ASSESSMENT</span></b><o:p></o:p></span></p><ul><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Psychometric Assessment<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Sales, Coding &amp; IT Assessment<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Behavioral Event Interview<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Video Interview<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Assessment Center<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Endurance &amp; Speed Test<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;360\'&nbsp; Feedback<o:p></o:p></span></li></ul><p class=\"MsoNormal\" style=\"text-align: justify;\"><span lang=\"EN-ID\"><b><span style=\"font-size: 24px;\">HR TECHNOLOGY</span></b><o:p></o:p></span></p><ul><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;End-to-End HRIS/HRMS<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Capability Building Platform (LMS &amp; LXP)<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Onboarding Platform<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Payroll &amp; Attendance System<o:p></o:p></span></li></ul><p class=\"MsoNormal\" style=\"text-align: justify;\"><span lang=\"EN-ID\"><b><span style=\"font-size: 24px;\">HR CONSULTANCY</span></b><o:p></o:p></span></p><ul><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Compensation and Benefits<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Job Evaluation<o:p></o:p></span></li><li style=\"text-align: justify;\"><span lang=\"EN-ID\">&nbsp; &nbsp;Performance Management</span></li><li style=\"text-align: justify; \"><span lang=\"EN-ID\">&nbsp; &nbsp;Career Transition and Outplacement<o:p></o:p></span></li></ul>', '2021-07-21 09:24:33', '2022-01-06 21:17:27'),
+(3, 1, 'What if I need a quick or more detailed question?', '<p><a href=\"http://Hello@consultwithoptimus.id\" target=\"_blank\"><span style=\"font-size: 24px;\"><b>Contact Us</b></span></a></p>', '2021-07-21 09:29:29', '2022-01-06 21:18:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2021_05_14_070535_create_events_table', 1),
+(5, '2021_05_15_012611_create_admins_table', 1),
+(6, '2021_05_15_020449_create_writers_table', 1),
+(7, '2021_05_15_020558_create_categories_table', 1),
+(8, '2021_05_17_034944_create_careers_table', 1),
+(9, '2021_05_17_035438_create_faqs_table', 1),
+(10, '2022_03_28_081435_create_article_categories_table', 2),
+(11, '2022_03_28_081657_create_articles_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `social_media`
+--
+
+CREATE TABLE `social_media` (
+  `id` int(11) NOT NULL,
+  `instagram_url` longtext DEFAULT NULL,
+  `linkedin_url` longtext DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `social_media`
+--
+
+INSERT INTO `social_media` (`id`, `instagram_url`, `linkedin_url`, `updated_at`) VALUES
+(1, '&lt;blockquote class=\"instagram-media col-lg-6 col-md-12 mt-2\" data-instgrm-permalink=\"https://www.instagram.com/p/CQfVD2oLz38/?utm_source=ig_embed&amp;amp;utm_campaign=loading\" data-instgrm-version=\"13\" style=\" background:#FFF; height: 860px; border-radius: 30px; border:0; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);\"&gt;&lt;div style=\"padding:16px;\"&gt; &lt;a href=\"https://www.instagram.com/p/CQfVD2oLz38/?utm_source=ig_embed&amp;amp;utm_campaign=loading\" style=\" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;\" target=\"_blank\"&gt; &lt;div style=\" display: flex; flex-direction: row; align-items: center;\"&gt; &lt;div style=\"background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;\"&gt;&lt;/div&gt; &lt;div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center;\"&gt; &lt;div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;\"&gt;&lt;/div&gt; &lt;div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;\"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\"padding: 19% 0;\"&gt;&lt;/div&gt; &lt;div style=\"display:block; height:50px; margin:0 auto 12px; width:50px;\"&gt;&lt;svg width=\"50px\" height=\"50px\" viewBox=\"0 0 60 60\" version=\"1.1\" xmlns=\"https://www.w3.org/2000/svg\" xmlns:xlink=\"https://www.w3.org/1999/xlink\"&gt;&lt;g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"&gt;&lt;g transform=\"translate(-511.000000, -20.000000)\" fill=\"#000000\"&gt;&lt;g&gt;&lt;path d=\"M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631\"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style=\"padding-top: 8px;\"&gt; &lt;div style=\" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;\"&gt; View this post on Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style=\"padding: 12.5% 0;\"&gt;&lt;/div&gt; &lt;div style=\"display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;\"&gt;&lt;div&gt; &lt;div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);\"&gt;&lt;/div&gt; &lt;div style=\"background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;\"&gt;&lt;/div&gt; &lt;div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);\"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\"margin-left: 8px;\"&gt; &lt;div style=\" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;\"&gt;&lt;/div&gt; &lt;div style=\" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)\"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=\"margin-left: auto;\"&gt; &lt;div style=\" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);\"&gt;&lt;/div&gt; &lt;div style=\" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);\"&gt;&lt;/div&gt; &lt;div style=\" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);\"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;\"&gt; &lt;div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;\"&gt;&lt;/div&gt; &lt;div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;\"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;p style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;\"&gt;&lt;a href=\"https://www.instagram.com/p/CQfVD2oLz38/?utm_source=ig_embed&amp;amp;utm_campaign=loading\" style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;\" target=\"_blank\"&gt;A post shared by Optimus Consulting (@optimus_consulting)&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; &lt;script async src=\"//www.instagram.com/embed.js\"&gt;&lt;/script&gt;', NULL, '2022-03-20 19:30:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `writers`
+--
+
+CREATE TABLE `writers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `writers`
+--
+
+INSERT INTO `writers` (`id`, `name`, `user_id`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Writer', 'writer', '$2y$10$LR8L53CqEjDVvZogRQqvJ.dL7gP/TF/mOpJAzICMXSBH4huokvCTO', NULL, '2021-07-20 23:12:10', '2021-07-20 23:12:10');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_user_id_unique` (`user_id`);
+
+--
+-- Indexes for table `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `article_categories`
+--
+ALTER TABLE `article_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `careers`
+--
+ALTER TABLE `careers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `career_categories`
+--
+ALTER TABLE `career_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `social_media`
+--
+ALTER TABLE `social_media`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `writers`
+--
+ALTER TABLE `writers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `writers_user_id_unique` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `article_categories`
+--
+ALTER TABLE `article_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `careers`
+--
+ALTER TABLE `careers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `career_categories`
+--
+ALTER TABLE `career_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `writers`
+--
+ALTER TABLE `writers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
